@@ -11,6 +11,9 @@ export default {
   actemptyloading(context) {
     context.commit("emptyloading");
   },
+  actloadlogin(context) {
+    context.commit("loadlogin");
+  },
   actlogin(context, data) {
     context.commit("login", data);
   },

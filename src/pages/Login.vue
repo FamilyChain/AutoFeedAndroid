@@ -38,12 +38,14 @@ export default defineComponent({
           privatekey: this.privatekey
         })
       } else {
-        return;
+        this.$store.dispatch('actshownotify', {
+          msgnotif: 'Please input private key',
+          notiftype: 0
+        });
       }
     },
     onReset () {
       this.privatekey = null;
-      this.$store.dispatch('actsetonoff');
     }
   }
 });

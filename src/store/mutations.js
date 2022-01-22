@@ -1,6 +1,7 @@
 const { showloading, emptyloading, shownotify, emptynotify, loadlogin } = require('./packs/helper'),
     login = require('./packs/login'),
-    { getonoff, setonoff } = require('./packs/onoff');
+    { getonoff, setonoff } = require('./packs/onoff'),
+    { showhistory } = require('./packs/history');
 
 export default {
     showloading,
@@ -10,5 +11,6 @@ export default {
     loadlogin,
     login,
     getonoff,
-    setonoff
+    setonoff,
+    showhistory
 };

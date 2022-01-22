@@ -22,5 +22,8 @@ export default {
   },
   actsetonoff(context) {
     context.commit("setonoff");
+  },
+  actshowhistory(context) {
+    context.commit("showhistory");
   }
 }

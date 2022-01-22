@@ -12,15 +12,16 @@ module.exports = {
                 wallet = new ethers.Wallet(accountWallet.privatekey, provider),
                 instance = new ethers.Contract(state.contractAddress, AutoFeedABI.abi, wallet),
                 getStatus = await instance.functions.paused();
-            emptyloading(state);
-            state.statusiot = getStatus[0];
+            state.statusapp = getStatus[0];
         } catch(err) {
-            emptyloading(state);
-            state.statusiot = null;
+            state.statusapp = null;
             shownotify(state, {
                 msgnotif: 'Get data status activated is fail',
                 notiftype: 0
             });
+            setTimeout(() => {
+                emptyloading(state);
+            }, 3000);
         }
     },
     setonoff: async(state) => {
@@ -33,7 +34,7 @@ module.exports = {
                 getStatus = await instance.functions.paused();
             !getStatus[0] ? await instance.functions.pause() : await instance.functions.unpause();
             shownotify(state, {
-                msgnotif: getStatus[0] ? 'Auto feed is non activated' : 'Auto feed is activated',
+                msgnotif: !getStatus[0] ? 'Auto feed is non activated' : 'Auto feed is activated',
                 notiftype: 1
             });
             setTimeout(() => {

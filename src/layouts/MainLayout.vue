@@ -58,7 +58,7 @@ const linksList = [
     title: 'History',
     caption: 'list feed',
     icon: 'mdi-format-list-bulleted',
-    link: '/#/'
+    link: '/#/history'
   },
   {
     title: 'Logout',
@@ -93,7 +93,6 @@ export default defineComponent({
   },
   methods: {
     checklogin() {
-      console.log('wew')
       this.statelogin = true;
       if (LocalStorage.getItem('datalogin')) {
         this.$store.dispatch('actloadlogin');

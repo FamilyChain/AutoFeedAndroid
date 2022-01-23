@@ -13,6 +13,7 @@ module.exports = {
                 instance = new ethers.Contract(state.contractAddress, AutoFeedABI.abi, wallet),
                 getStatus = await instance.functions.paused();
             state.statusapp = getStatus[0];
+            emptyloading(state);
         } catch(err) {
             state.statusapp = null;
             shownotify(state, {
